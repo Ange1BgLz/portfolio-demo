@@ -70,7 +70,6 @@ public class Portfolio {
 		return c -> {
 			if (stocks.size() <= count+1) {
 				System.out.println("Done!");
-				System.out.println();
 				showOptions();
 			} else {
 				getStockInfo(stocks.get(count+1), postMenuCallback(count+1));
@@ -86,6 +85,7 @@ public class Portfolio {
 	}
 	
 	public void showOptions() {
+		System.out.println();
 		System.out.println("Please select an option to perform in your Portfolio: ");
 		for (final OptionsEnum option : OptionsEnum.values()) {
 			System.out.println(option.getId() + ". " + option.getDescription());
@@ -143,6 +143,7 @@ public class Portfolio {
 				tries++;
 				System.err.println("ERROR :: Invalid number. Try again.");
 			} finally {
+				System.out.println();
 				sc.nextLine();
 			}
 		}

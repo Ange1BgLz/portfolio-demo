@@ -2,15 +2,19 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>dev.angelb</groupId>
   <artifactId>portfolio</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.220411</version>
+  <properties>
+ 	<maven.compiler.source>1.8</maven.compiler.source>
+ 	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <name>Portfolio</name>
   <repositories>
     <repository>
         <id>jitpack.io</id>
         <url>https://jitpack.io</url>
     </repository>
-</repositories>
-<dependencies>
+  </repositories>
+  <dependencies>
     <dependency>
         <groupId>com.github.crazzyghost</groupId>
         <artifactId>alphavantage-java</artifactId>
@@ -22,5 +26,35 @@
 		<version>1.18.22</version>
 		<scope>provided</scope>
 	</dependency>
-</dependencies>
+  </dependencies>
+  <build>
+	<plugins>
+		<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <Main-Class>portfolio.Main</Main-Class>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+	</plugins>
+  </build>
+  <scm>
+  	<developerConnection>Ange1BgLz</developerConnection>
+  	<url>https://github.com/Ange1BgLz/portfolio-demo.git</url>
+  </scm>
+  <description>This is a demo project about gathering Stocks information using the java Alphavantage API to calculate close prices and profit of a Portfolio</description>
+  <url>https://github.com/Ange1BgLz/portfolio-demo</url>
 </project>
