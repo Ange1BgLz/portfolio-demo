@@ -1,5 +1,5 @@
 
-# H1 Header (Underline)
+# Portfolio demo
 
 This is a demo project about gathering Stocks information using the java Alphavantage API to calculate close prices and profit of a Portfolio
 
